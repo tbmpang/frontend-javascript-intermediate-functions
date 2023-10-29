@@ -50,10 +50,22 @@ console.log(typeOfFunction);
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
 
-function checkEmailValidity(emailExample) {
-    if (emailExample.includes("@")) !(emailExample.includes(","))
-    ! (emailExample.charAt(emailExample.length).includes(".")) }
+function checkEmailValidity(email) {
+    // Check if the email contains the "@" symbol.
+    if (email.indexOf("@") === -1) {
+        return false;
+    }
 
-validEmailAdres = checkEmailValidity("n.eeken@novi.nl")
+    // Check if the email contains a comma (,).
+    if (email.includes(",")) {
+        return false;
+    }
 
-console.log(validEmailAdres)
+    // Check if the last character of the email is not a period (.).
+    if (email.endsWith(".")) {
+        return false;
+    }
+
+    return true;
+}
+console.log(checkEmailValidity("n.eeken@novi.nl"))
